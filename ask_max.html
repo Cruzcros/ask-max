@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Max</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #35424a;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2c3e50;
+        }
+        .response {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e7f3fe;
+            border-left: 6px solid #2196F3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ask Max</h1>
+    <p>Your go-to Q&A assistant!</p>
+</header>
+
+<section>
+    <h2>Ask a Question</h2>
+    <input type="text" id="userQuestion" placeholder="Type your question here..." />
+    <button onclick="answerQuestion()">Get Answer</button>
+    
+    <div class="response" id="response" style="display: none;"></div>
+</section>
+
+<script>
+    function answerQuestion() {
+        const question = document.getElementById('userQuestion').value.toLowerCase();
+        const responseDiv = document.getElementById('response');
+        
+        let answer = "I'm sorry, I don't have an answer for that.";
+        
+        if (question.includes("hello") || question.includes("hi")) {
+            answer = "Hello! How can I assist you today?";
+        } else if (question.includes("how are you")) {
+            answer = "I'm just a program, but thanks for asking!";
+        } else if (question.includes("what is your name")) {
+            answer = "I'm Max, your friendly Q&A assistant.";
+        } else if (question.includes("what can you do")) {
+            answer = "I can answer simple questions and help you find information!";
+        }
+
+        responseDiv.innerHTML = answer;
+        responseDiv.style.display = 'block';
+    }
+</script>
+
+<footer>
+    <p>&copy; 2024 Ask Max. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
